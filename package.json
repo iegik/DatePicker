@@ -1,0 +1,34 @@
+{
+  "name": "datepicker",
+  "version": "1.0.0",
+  "description": "Тестовое задание следующее: \r – нужно собрать простой datepicker.\r – никаких режимов, переключение только по месяцам\r – использовать React для разработки и gulp для сборки\r – дизайн любой\r – нельзя использовать jQuery\r – datepicker должен быть отдельным React-компонентом",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browserify": "^11.0.0",
+    "gulp": "^3.9.0",
+    "react": "^0.13.3",
+    "watchify": "^3.3.0"
+  },
+  "devDependencies": {
+    "gulp-jsx": "^2.0.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "^3.0.6",
+    "jsx-transform": "^2.2.1",
+    "lodash.assign": "^3.2.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artūrs Jansons",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:iegik/DatePicker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iegik/DatePicker/issues"
+  },
+  "homepage": "https://github.com/iegik/DatePicker"
+}

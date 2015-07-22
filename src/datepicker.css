@@ -1,0 +1,14 @@
+input[type="date"][data-reactid][data-date-format]::-webkit-datetime-edit {
+	visibility: hidden;
+}
+
+input[type="date"][data-reactid][data-date-format]::-webkit-inner-spin-button,
+input[type="date"][data-reactid][data-date-format]::-webkit-clear-button {
+	display: none;
+}
+
+input[type="date"][data-reactid][data-date-format]:before {
+	content: attr(data-date);
+	position: absolute;
+	padding: .1em 0.5em;
+}
