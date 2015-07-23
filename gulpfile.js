@@ -12,7 +12,12 @@ var jsxify = require('jsx-transform').browserifyTransform;
 
 // add custom browserify options here
 var customOpts = {
-	entries: ['./src/datepicker.js'],
+	entries: [
+		'./src/datepicker.js',
+		//'./src/helpers/Date.format.js',
+		//'./src/helpers/Object.assign.js',
+		//'./src/components/DatePicker.js'
+	],
 	debug: true,
 	factory: 'h'
 };

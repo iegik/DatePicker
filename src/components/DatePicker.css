@@ -10,5 +10,5 @@ input[type="date"][data-reactid][data-date-format]::-webkit-clear-button {
 input[type="date"][data-reactid][data-date-format]:before {
 	content: attr(data-date);
 	position: absolute;
-	padding: .1em 0.5em;
+	padding: .1em 0.25em;
 }
