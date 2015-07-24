@@ -45,3 +45,7 @@ function bundle() {
     .pipe(sourcemaps.write('./')) // writes .map file
     .pipe(gulp.dest('./build'));
 }
+
+gulp.task('watch', ['js']);
+// The default task (called when you run `gulp` from cli)
+gulp.task('default', ['watch']);
