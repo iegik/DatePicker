@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>DatePicker - Artūrs Jansons</title>
+	<link type="text/css" rel="stylesheet" href="src/components/DatePicker.css" />
+	<link type="text/css" rel="stylesheet" href="src/components/DateRange.css" />
+	<script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
+</head>
+
+<body>
+	<script src="build/bundle.js"></script>
+	<hr/>
+	<h3>Calendar</h3>
+	<input id="c" type="date" />
+	<b>
+		<input type="number" min="1" max="31" placeholder="day"/>
+		<input type="number" min="1" max="12" placeholder="month"/>
+		<input type="number" placeholder="year" />
+	</b>
+	
+	<div class="popover">
+		<div class="header">
+		</div>
+		<div class="content">
+			<table id="calendar"></table>
+		</div>
+	</div>
+	
+	<script>
+addEventListener('DOMContentLoaded', function(){
+//var d = new Date('2015-07-06'); // 2r1c
+	var d = new Date('2015-07-26'); // 4r7c
+	
+	//window.dateTimeFormat = new Intl.DateTimeFormat('lv-LV');
+
+	function getDay(d){
+		var dateTimeFormat = window['dateTimeFormat'] || new Intl.DateTimeFormat();
+		if(dateTimeFormat.resolvedOptions().calendar === 'gregory'){
+			return (d.getDay()?d.getDay():7) - 1
+		}
+		return d.getDay();
+	}
+	// returns full 6-week calendar started from 1st day of the week (of current or previeus month)
+	Date.prototype.getCalendar = function(){
+
+		var d = new Date(this);
+		d.setDate(1);
+		d.setDate(d.getDate() - getDay(d));
+
+		var i;
+		for (i = 0; i < 7 * 6; i++){
+			this[i] = new Date(d);
+			d.setDate(this[i].getDate()+1);
+		}
+	}
+
+	// Render
+	c.onchange = function (){
+		var d = this.value?new Date(this.value):new Date();
+			d.getCalendar();
+
+		var id = 'cal'+d.getFullYear()+d.getMonth();
+		if(!document.getElementById(id)) {
+			var calendar = document.createElement('tbody');
+			
+			var row = document.createElement('tr');
+			
+			row = document.createElement('tr');
+			['pr','ot','tr','ce','pk','se','sv'].forEach(function(a){
+				var th = document.createElement('th');
+				th.innerHTML = a;
+				row.appendChild(th);
+			});
+			
+			calendar.id = id;
+			for(var i = 0; !!d[i]; i++){
+				if(i%7 === 0){
+					calendar.appendChild(row);
+					row = document.createElement('tr');
+				}
+				var col = document.createElement('td');
+				col.innerHTML = d[i].getDate();
+				var classList = [];
+				if(getDay(d[i]) >= 5){
+					classList.push('weekend');
+				}
+				if(d[i].getMonth() === d.getMonth()){
+					classList.push('current');
+				}
+				
+				if(classList.length > 0){
+					col.setAttribute('class', classList.join(' '));
+				}
+				row.appendChild(col);
+			}
+			calendar.appendChild(row);
+			document.getElementById('calendar').appendChild(calendar);			
+		}
+		[].forEach.call(document.querySelectorAll('#calendar tbody.active'),function(a){a.setAttribute('class','')});
+		document.getElementById(id).setAttribute('class', 'active');
+
+		[].forEach.call(document.querySelectorAll('#calendar tbody.active td.current'),function(a){
+			a.setAttribute('class',(a.getAttribute('class')||'').replace('active','') + (a.innerHTML*1 == d.getDate()?' active':''))
+		});
+		
+	}
+	c.onchange();
+});
+
+	</script>
+	
+	
+</body>
+
+</html>	
