@@ -10,8 +10,6 @@
 </head>
 
 <body>
-	<script src="build/bundle.js"></script>
-	<hr/>
 	<h3>Calendar</h3>
 	<input id="c" type="date" />
 	<b>
@@ -36,8 +34,8 @@ addEventListener('DOMContentLoaded', function(){
 	//window.dateTimeFormat = new Intl.DateTimeFormat('lv-LV');
 
 	function getDay(d){
-		var dateTimeFormat = window['dateTimeFormat'] || new Intl.DateTimeFormat();
-		if(dateTimeFormat.resolvedOptions().calendar === 'gregory'){
+		var dateTimeFormat = window['dateTimeFormat'] || (window['Intl'] && new Intl.DateTimeFormat());
+		if(dateTimeFormat && dateTimeFormat['resolvedOptions'] && dateTimeFormat.resolvedOptions().calendar === 'gregory'){
 			return (d.getDay()?d.getDay():7) - 1
 		}
 		return d.getDay();
