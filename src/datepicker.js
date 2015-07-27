@@ -20,10 +20,19 @@ if (!Date.prototype.toISODate) {
 
 	}());
 }
-var DatePicker = require('./components/DatePicker.js')
+
+if(!window['Intl']){
+	require('intl');
+	Intl.DateTimeFormat.supportedLocalesOf('lv-LV')[0] === 'lv-LV' || require('intl/locale-data/jsonp/lv-LV.js');
+	Intl.DateTimeFormat.supportedLocalesOf('ru-RU')[0] === 'ru-RU' || require('intl/locale-data/jsonp/ru-RU.js');
+	Intl.NumberFormat = IntlPolyfill.NumberFormat;
+	Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
+} 
 
 // Predefined locale
-var dateTimeFormat = new Intl.DateTimeFormat('lv-LV');
+window.dateTimeFormat = new Intl.DateTimeFormat('lv-LV');
+
+var DatePicker = require('./components/DatePicker.js')
 
 React.render(
 	DatePicker({

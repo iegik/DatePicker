@@ -1,9 +1,10 @@
 var React = require('react');
+
 var DatePicker = React.createClass({
 	displayName: 'DatePicker',
 	getInitialState: function () {
-		var dateTimeFormat = new Intl.DateTimeFormat();
-		var pattern = this.props['data-date-format'] || (dateTimeFormat.resolved && dateTimeFormat.resolved.pattern) || 'y-M-d';
+		var dateTimeFormat = window['dateTimeFormat'] || window['Intl'] && new Intl.DateTimeFormat();
+		var pattern = this.props['data-date-format'] || (dateTimeFormat && dateTimeFormat.resolved.pattern) || 'y-M-d';
 		return {
 			'value': (new Date()).toISODate(),
 			'data-date-format': pattern,
@@ -22,7 +23,7 @@ var DatePicker = React.createClass({
 			'type': 'date',
 			'value': this.state.value,
 			'data-date': this.state['data-date'],
-			'data-date-format': this.state['data-date-format'] || dateTimeFormat.resolved && dateTimeFormat.resolved.pattern || 'y-M-d',
+			'data-date-format': this.state['data-date-format'],
 			'onChange': this.handleChange
 		});
 	}
