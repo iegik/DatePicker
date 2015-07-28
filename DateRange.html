@@ -80,6 +80,12 @@ addEventListener('DOMContentLoaded', function(){
 				}
 				var col = document.createElement('td');
 				col.innerHTML = d[i].getDate();
+                col.onclick = function(){
+                    var d = self.value ? new Date(self.value) : new Date();
+                    d.setDate(this.innerHTML*1);
+                    self.value = d.toISOString().split('T')[0];
+                    self.onchange();
+                }
 				var classList = [];
 				if(getDay(d[i]) >= 5){
 					classList.push('weekend');
