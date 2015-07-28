@@ -1,4 +1,6 @@
 .popover {
+    font-size: 10pt;
+    line-height: 1.25;
 	border: 1px solid gainsboro;
 	border-radius: 4px;
 	display: inline-block;
@@ -9,14 +11,14 @@
 }
 
 .popover .content {
-	
+	width: 24ex;
+	height: 11em;
+	background-color: #fefefe;
 }
 
-table#calendar {
+#calendar {
 	font-family: monospace;
-	background-color: #fefefe;
-	width: 22ex;
-	height: 11em;
+	background-color: inherit;
 }
 #calendar tbody {
 	position: absolute;
@@ -34,6 +36,7 @@ table#calendar {
 }
 #calendar tbody td.active {
 	font-weight: 700;
+    outline: 2px solid red;
 }
 #calendar tbody.active {
 	z-index: 1;
