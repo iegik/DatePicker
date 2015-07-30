@@ -1,4 +1,17 @@
 var React = require('react');
+
+if (!Date.prototype.format) {
+	(function () {
+		Date.prototype.format = require('../helpers/Date.format.js');
+	}());
+}
+
+if (!Date.prototype.toISODate) {
+	(function () {
+		Date.prototype.toISODate = require('../helpers/Date.toISODate.js');
+	}());
+}
+
 var DatePicker = React.createClass({
 	displayName: 'DatePicker',
 	getInitialState: function () {

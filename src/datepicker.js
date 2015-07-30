@@ -1,26 +1,8 @@
 var React = require('react');
+window.h = React.createElement;
 
-if (!Object.assign) {
-	(function () {
-		Object.prototype.assign = require('./helpers/Object.assign.js');
-	}());
-}
-if (!Date.prototype.format) {
-	(function () {
-		Date.prototype.format = require('./helpers/Date.format.js');
-	}());
-}
-
-if (!Date.prototype.toISODate) {
-	(function () {
-
-		Date.prototype.toISODate = function () {
-			return this.format('y-M-d');
-		};
-
-	}());
-}
 var DatePicker = require('./components/DatePicker.js')
+var DateRange = require('./components/DateRange.js')
 
 // Predefined locale
 var dateTimeFormat = new Intl.DateTimeFormat('lv-LV');
@@ -30,5 +12,12 @@ React.render(
 		'data-date-format': 'd MMM y'
 		//'data-date-format': dateTimeFormat.resolved.pattern
 	}),
-	document.body
+	document.getElementById('datePicker')
+);
+
+var CalendarBox = require('./components/CalendarBox.js')
+
+React.render(
+  <CalendarBox date={new Date()} />,
+  document.getElementById('calendarBox')
 );
