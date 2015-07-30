@@ -17,6 +17,7 @@ var customOpts = {
 		//'./src/helpers/Date.format.js',
 		//'./src/helpers/Object.assign.js',
 		//'./src/components/DatePicker.js'
+		'./src/components/DateRange.js'
 	],
 	debug: true,
 	factory: 'h'

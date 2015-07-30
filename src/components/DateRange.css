@@ -1,0 +1,43 @@
+.popover {
+    font-size: 10pt;
+    line-height: 1.25;
+	border: 1px solid gainsboro;
+	border-radius: 4px;
+	display: inline-block;
+}
+
+.popover .header {
+	
+}
+
+.popover .content {
+	width: 24ex;
+	height: 11em;
+	background-color: #fefefe;
+}
+
+#calendar {
+	font-family: monospace;
+	background-color: inherit;
+}
+#calendar tbody {
+	position: absolute;
+	background-color: inherit;
+}
+#calendar tbody td {
+	text-align: right;
+	color: #999;
+}
+#calendar tbody td.current {
+	color: #222;
+}
+#calendar tbody td.current.weekend {
+	color: red;
+}
+#calendar tbody td.active {
+	font-weight: 700;
+    outline: 2px solid red;
+}
+#calendar tbody.active {
+	z-index: 1;
+}

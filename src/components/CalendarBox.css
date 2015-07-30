@@ -1,0 +1,24 @@
+/* CalendarBox */
+
+.calendarBox .month {
+    width: 10.5em;
+    font-family: monospace;
+	color: #999;
+}
+.calendarBox .month .current {
+	color: #222;
+}
+
+.calendarBox .day {
+    width: 1.5em;
+    display: inline-block;
+    text-align: right;
+}
+.calendarBox .current.day.day-5,
+.calendarBox .current.day.day-6 {
+    color: red;
+}
+.calendarBox .day.today {
+    font-weight: 700;
+    outline: 2px solid red;
+}
