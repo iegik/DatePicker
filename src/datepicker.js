@@ -1,6 +1,7 @@
 var React = require('react');
 window.h = React.createElement;
 
+/*
 var DatePicker = React.createFactory(require('./components/DatePicker'));
 var DateRange = React.createFactory(require('./components/DateRange'));
 
@@ -22,4 +23,11 @@ var CalendarBox = React.createFactory(require('./components/CalendarBox'));
 React.render(
   <CalendarBox date={new Date()} />,
   document.getElementById('calendarBox')
+);
+*/
+
+var CalendarApp = React.createFactory(require('./app'));
+React.render(
+  <CalendarApp />,
+  document.getElementById('content')
 );
