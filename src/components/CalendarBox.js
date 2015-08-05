@@ -25,4 +25,4 @@ var CalendarBox = React.createClass({
         );
     }
 });
-module.exports = React.createFactory(CalendarBox);
+module.exports = CalendarBox;
