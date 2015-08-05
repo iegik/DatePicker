@@ -1,3 +1,6 @@
+input[type="date"] {
+    min-width: 11em;
+}
 input[type="date"][data-reactid][data-date-format]::-webkit-datetime-edit {
 	visibility: hidden;
 }
@@ -11,4 +14,5 @@ input[type="date"][data-reactid][data-date-format]:before {
 	content: attr(data-date);
 	position: absolute;
 	padding: .1em 0.25em;
+    max-width: 11em;
 }
