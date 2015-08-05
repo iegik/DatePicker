@@ -10,11 +10,17 @@ if (!Date.prototype.getCalendar) {
 
 var CalendarBox = React.createClass({
     render: function () {
-        var calendar = this.props.date;
+        var ISODate = this.props.date;
+        console.log(this.props.date);
+        var FullYearMonthDay = ISODate.split('-');
+        var calendar = new Date();
+        calendar.setFullYear(FullYearMonthDay[0]);
+        calendar.setMonth(FullYearMonthDay[1]-1);
+        calendar.setDate(FullYearMonthDay[2])
         calendar.getCalendar();
         return (
             <div className="calendarBox">
-                <CalendarMonth calendar={calendar}/>
+                <CalendarMonth calendar={calendar} />
             </div>
         );
     }
