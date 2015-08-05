@@ -1,13 +1,13 @@
 var React = require('react');
 window.h = React.createElement;
 
-var DatePicker = require('./components/DatePicker.js')
-var DateRange = require('./components/DateRange.js')
+var DatePicker = React.createFactory(require('./components/DatePicker'));
+var DateRange = React.createFactory(require('./components/DateRange'));
 
 // Predefined locale
 window.dateTimeFormat = new Intl.DateTimeFormat('lv-LV');
 
-var DatePicker = require('./components/DatePicker.js')
+var DatePicker = React.createFactory(require('./components/DatePicker'));
 
 React.render(
 	DatePicker({
@@ -17,7 +17,7 @@ React.render(
 	document.getElementById('datePicker')
 );
 
-var CalendarBox = require('./components/CalendarBox.js')
+var CalendarBox = React.createFactory(require('./components/CalendarBox'));
 
 React.render(
   <CalendarBox date={new Date()} />,
