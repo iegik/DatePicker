@@ -34,7 +34,7 @@ var DatePicker = React.createClass({
 	}
 });
 
-module.exports = React.createFactory(DatePicker);
+module.exports = DatePicker;
 
 /*
 React.render(
