@@ -7,5 +7,5 @@ module.exports = keyMirror({
     CALENDAR_DESTROY_COMPLETED: null,
     CALENDAR_TOGGLE_COMPLETE_ALL: null,
     CALENDAR_UNDO_COMPLETE: null,
-    CALENDAR_UPDATE_DATE: null,
+    CALENDAR_UPDATE_DATE: null
 });

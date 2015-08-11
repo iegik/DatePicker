@@ -1,3 +1,4 @@
+'use strict';
 //var Footer = require('./Footer.react');
 //var Header = require('./Header.react');
 //var MainSection = require('./MainSection.react');
@@ -19,11 +20,11 @@ var CalendarApp = React.createClass({
     },
 
     componentDidMount: function () {
-        CalendarStore.addChangeListener(this._onChange);
+        CalendarStore.addChangeListener(this.changeListener);
     },
 
     componentWillUnmount: function () {
-        CalendarStore.removeChangeListener(this._onChange);
+        CalendarStore.removeChangeListener(this.changeListener);
     },
 
     /**
@@ -31,14 +32,16 @@ var CalendarApp = React.createClass({
      */
     render: function () {
         return (
+            /*jshint ignore:start */
             <div>
                 <DatePicker data-date-format="d MMM y" value={this.state.date} />
                 <CalendarBox date={this.state.date} />
             </div>
+            /*jshint ignore:end */
         );
     },
 
-    _onChange: function () {
+    changeListener: function () {
         this.setState(getCalendarState());
     }
 

@@ -1,5 +1,7 @@
+'use strict';
+
 var React = require('react');
-var CalendarMonth = require('./CalendarMonth.js')
+var CalendarMonth = require('./CalendarMonth.js');
 
 Date.prototype.getDay = require('../helpers/Date.getDay.js');
 if (!Date.prototype.getCalendar) {
@@ -15,8 +17,8 @@ var CalendarBox = React.createClass({
         var FullYearMonthDay = ISODate.split('-');
         var calendar = new Date();
         calendar.setFullYear(FullYearMonthDay[0]);
-        calendar.setMonth(FullYearMonthDay[1]-1);
-        calendar.setDate(FullYearMonthDay[2])
+        calendar.setMonth(FullYearMonthDay[1] - 1);
+        calendar.setDate(FullYearMonthDay[2]);
         calendar.getCalendar();
         return (
             <div className="calendarBox">

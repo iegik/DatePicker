@@ -1,3 +1,5 @@
+'use strict';
+
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var TodoConstants = require('../constants/CalendarConstants');
@@ -60,8 +62,8 @@ var CalendarStore = assign({}, EventEmitter.prototype, {
     },
 
     dispatcherIndex: AppDispatcher.register(function (payload) {
-        var action = payload.action;
-        var text;
+        var action = payload.action,
+            text;
 
         switch (action.actionType) {
         case CalendarConstants.CALENDAR_CREATE:
